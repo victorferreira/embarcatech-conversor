@@ -6,9 +6,9 @@ int main(int argc, char const *argv[])
     double v,res; 
 
     /* 
-    v -> Valor; 
-    umo -> Unidade de Medida Original; 
-    umf -> Unidade de Medida Final 
+    v -> Valor
+    umo -> Unidade de Medida Original
+    umf -> Unidade de Medida Final
     res -> Resultado
     */
 
