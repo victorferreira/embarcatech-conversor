@@ -2,60 +2,16 @@
 #include <stdlib.h>
 
 double LerValorEmMC ();
+double Converter(double v);
 
 int main()
 {
-    int umf;
-    double v; 
+    double valor; 
 
-    /* 
-    v -> Valor
-    umo -> Unidade de Medida Original
-    umf -> Unidade de Medida Final
-    res -> Resultado
-    */
+   valor = LerValorEmMC();
+   valor = Converter(valor);
 
-   v = LerValorEmMC();
-
-    do
-    {
-        printf("\nDigite a Unidade de medida para a qual deseja converter: ");
-        printf("\n1 -> Litros");
-        printf("\n2 -> Mililitros");
-        printf("\n3 -> Metros Cubicos");
-        printf("\n4 -> Centimetros Cubicos");
-        printf("\n5 -> Decimetros Cubicos\n");
-        scanf("%d",&umf);
-    } while (umf<1 || umf > 5);
-    
-    /*O trecho de código acima recebe o tipo para o qual se deseja fazer a conversão */
-
-    switch (umf)
-    {
-    case 1:
-        v *= 1000;
-        break;
-    case 2:
-        v *= 1000000;
-        break;
-    case 3:
-        v = v;
-        break;
-    case 4:
-        v *= 100;
-        break;
-    case 5:
-        v *= 10;
-        break; 
-    default:
-        printf("ERRO - UNIDADE DE MEDIDA INESPERADA");
-        exit(1);
-        break;
-    }
-
-     /*O trecho de código acima converte o valor em metros cúbicos para a opção desejada*/
-
-    printf("\nO valor que voce digitou equivale a %.0lf.\n",v);
+    printf("\nO valor que voce digitou equivale a %.0lf.\n",valor);
     return 0;
 }
 
@@ -103,8 +59,50 @@ double LerValorEmMC () {
     }
 
     /*O trecho de código acima converte o valor recebido para metros cúbicos*/
-    
+
     return v;
 }
+double Converter (double v){
 
+    int umf; //Unidade de Medida Final
 
+    do
+    {
+        printf("\nDigite a Unidade de medida para a qual deseja converter: ");
+        printf("\n1 -> Litros");
+        printf("\n2 -> Mililitros");
+        printf("\n3 -> Metros Cubicos");
+        printf("\n4 -> Centimetros Cubicos");
+        printf("\n5 -> Decimetros Cubicos\n");
+        scanf("%d",&umf);
+    } while (umf<1 || umf > 5);
+    
+    /*O trecho de código acima recebe o tipo para o qual se deseja fazer a conversão */
+
+    switch (umf)
+    {
+    case 1:
+        v *= 1000;
+        break;
+    case 2:
+        v *= 1000000;
+        break;
+    case 3:
+        v = v;
+        break;
+    case 4:
+        v *= 100;
+        break;
+    case 5:
+        v *= 10;
+        break; 
+    default:
+        printf("ERRO - UNIDADE DE MEDIDA INESPERADA");
+        exit(1);
+        break;
+    }
+
+     /*O trecho de código acima converte o valor em metros cúbicos para a opção desejada*/
+
+    return v;
+}
