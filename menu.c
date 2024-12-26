@@ -28,4 +28,8 @@ void conversor_tempo();
 void conversor_dados();
 void menu();
 
-
+// Função principal que apenas inicia o programa
+int main() {
+    menu();
+    return 0;
+}
