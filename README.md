@@ -4,10 +4,10 @@
 Este é um programa conversor de unidades desenvolvido em C como parte de um projeto colaborativo para prática de Git e GitHub.
 
 ## Participantes
-
-- Victor Ferreira 
 - João Victor de Souza Silva
 - Ueslei Jesus
+- Vanio Ferreira
+- Victor Ferreira
 
 ## Funcionalidades
 O programa ao ser finalizado permitira converter entre diferentes unidades de medida:
