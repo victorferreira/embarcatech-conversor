@@ -28,6 +28,12 @@ void conversor_tempo();
 void conversor_dados();
 void menu();
 
+// protótipo das funções auxiliares de velocidade
+float kmhParaMps(float kmh);
+float mpsParaKmh(float mps);
+float kmhParaMph(float kmh);
+float mphParaKmh(float mph);
+
 // Função principal que apenas inicia o programa
 int main() {
     menu();
