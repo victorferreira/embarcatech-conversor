@@ -34,6 +34,11 @@ float mpsParaKmh(float mps);
 float kmhParaMph(float kmh);
 float mphParaKmh(float mph);
 
+// Protótipos das funções auxiliares de volume
+double LerValorEmMC();
+double Converter(double v);
+
+
 // Função principal que apenas inicia o programa
 int main() {
     menu();
