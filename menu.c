@@ -27,7 +27,51 @@ void conversor_volume() {
 };
 
 void conversor_temperatura();
-void conversor_velocidade();
+void conversor_velocidade(){
+    int opcao;
+    float valor, resultado;
+    
+    do {
+        printf("\n=== Conversor de Velocidade ===\n");
+        printf("1. km/h para m/s\n");
+        printf("2. m/s para km/h\n");
+        printf("3. km/h para mph\n");
+        printf("4. mph para km/h\n");
+        printf("Digite sua opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao < 1 || opcao > 4) {
+            printf("Opção inválida! Por favor, escolha novamente.\n");
+        }
+    } while (opcao < 1 || opcao > 4);
+
+    switch(opcao) {
+        case 1:
+            printf("Digite o valor em km/h: ");
+            scanf("%f", &valor);
+            resultado = kmhParaMps(valor);
+            printf("%.2f km/h = %.2f m/s\n", valor, resultado);
+            break;
+        case 2:
+            printf("Digite o valor em m/s: ");
+            scanf("%f", &valor);
+            resultado = mpsParaKmh(valor);
+            printf("%.2f m/s = %.2f km/h\n", valor, resultado);
+            break;
+        case 3:
+            printf("Digite o valor em km/h: ");
+            scanf("%f", &valor);
+            resultado = kmhParaMph(valor);
+            printf("%.2f km/h = %.2f mph\n", valor, resultado);
+            break;
+        case 4:
+            printf("Digite o valor em mph: ");
+            scanf("%f", &valor);
+            resultado = mphParaKmh(valor);
+            printf("%.2f mph = %.2f km/h\n", valor, resultado);
+            break;
+    }
+};
 void conversor_potencia();
 void conversor_area();
 void conversor_tempo();
@@ -35,10 +79,18 @@ void conversor_dados();
 void menu();
 
 // protótipo das funções auxiliares de velocidade
-float kmhParaMps(float kmh);
-float mpsParaKmh(float mps);
-float kmhParaMph(float kmh);
-float mphParaKmh(float mph);
+float kmhParaMps(float kmh){
+    return kmh / 3.6;
+};
+float mpsParaKmh(float mps){
+    return mps * 3.6;
+};
+float kmhParaMph(float kmh){
+    return kmh * 0.621371;
+};
+float mphParaKmh(float mph){
+    return mph / 0.621371;
+};
 
 // funções auxiliares de volume
 double LerValorEmMC() 
