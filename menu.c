@@ -19,7 +19,13 @@ void menu();
 // Protótipos das funções de conversão
 void conversor_comprimento();
 void conversor_massa();
-void conversor_volume();
+
+void conversor_volume() {
+    double valor = LerValorEmMC();
+    valor = Converter(valor);
+    printf("\nO valor convertido é %.0lf.\n", valor);
+};
+
 void conversor_temperatura();
 void conversor_velocidade();
 void conversor_potencia();
@@ -34,9 +40,85 @@ float mpsParaKmh(float mps);
 float kmhParaMph(float kmh);
 float mphParaKmh(float mph);
 
-// Protótipos das funções auxiliares de volume
-double LerValorEmMC();
-double Converter(double v);
+// funções auxiliares de volume
+double LerValorEmMC() 
+{
+    double v;
+    int umo;
+
+    printf("\nDigite o Valor que deseja converter: ");
+    scanf("%lf", &v);
+    do {
+        printf("\nDigite a Unidade de medida dele: ");
+        printf("\n1 -> Litros");
+        printf("\n2 -> Mililitros");
+        printf("\n3 -> Metros Cubicos");
+        printf("\n4 -> Centimetros Cubicos");
+        printf("\n5 -> Decimetros Cubicos\n");
+        scanf("%d", &umo);
+    } while (umo < 1 || umo > 5);
+
+    switch (umo) {
+        case 1:
+            v = v / 1000;
+            break;
+        case 2:
+            v = v / 1000000;
+            break;
+        case 3:
+            v = v;
+            break;
+        case 4:
+            v = v / 100;
+            break;
+        case 5:
+            v = v / 10;
+            break;
+        default:
+            printf("ERRO - UNIDADE DE MEDIDA INESPERADA");
+            exit(1);
+            break;
+    }
+
+    return v;
+};
+double Converter(double v) {
+    int umf;
+
+    do {
+        printf("\nDigite a Unidade de medida para a qual deseja converter: ");
+        printf("\n1 -> Litros");
+        printf("\n2 -> Mililitros");
+        printf("\n3 -> Metros Cubicos");
+        printf("\n4 -> Centimetros Cubicos");
+        printf("\n5 -> Decimetros Cubicos\n");
+        scanf("%d", &umf);
+    } while (umf < 1 || umf > 5);
+
+    switch (umf) {
+        case 1:
+            v *= 1000;
+            break;
+        case 2:
+            v *= 1000000;
+            break;
+        case 3:
+            v = v;
+            break;
+        case 4:
+            v *= 100;
+            break;
+        case 5:
+            v *= 10;
+            break;
+        default:
+            printf("ERRO - UNIDADE DE MEDIDA INESPERADA");
+            exit(1);
+            break;
+    }
+
+    return v;
+};
 
 
 // Função principal que apenas inicia o programa
